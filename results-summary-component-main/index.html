@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Frontend Mentor | Results summary component</title>
+  </head>
+  <body>
+    <main class="results-card">
+      <section class="results-section">
+        <h2 class="results-title">Your Result</h2>
+        <div class="score-circle">
+          <span class="main-score">76</span>
+          <span class="total-score">of 100</span>
+        </div>
+        <p class="grade">Great</p>
+        <p class="description">
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </section>
+
+      <section class="summary-section">
+        <h2 class="summary-title">Summary</h2>
+        <div class="summary-items">
+          <div class="summary-item-reaction">
+            <img
+              src="./assets/images/icon-reaction.svg"
+              alt="reaction icon"
+              class="summary-icon"
+            />
+
+            <span class="category">Reaction</span>
+            <span class="score"
+              ><span class="current-score">80</span> / 100</span
+            >
+          </div>
+          <div class="summary-item-memory">
+            <img
+              src="./assets/images/icon-memory.svg"
+              alt="memory icon"
+              class="summary-icon"
+            />
+
+            <span class="category">Memory</span>
+            <span class="score"
+              ><span class="current-score">92</span> / 100</span
+            >
+          </div>
+
+          <div class="summary-item-verbal">
+            <img
+              src="./assets/images/icon-verbal.svg"
+              alt="verbal icon"
+              class="summary-icon"
+            />
+
+            <span class="category">Verbal</span>
+            <span class="score"
+              ><span class="current-score">61</span> / 100</span
+            >
+          </div>
+
+          <div class="summary-item-visual">
+            <img
+              src="./assets/images/icon-visual.svg"
+              alt="visual icon"
+              class="summary-icon"
+            />
+
+            <span class="category">Visual</span>
+            <span class="score"
+              ><span class="current-score">73</span> / 100</span
+            >
+          </div>
+        </div>
+
+        <button class="continue-btn">Continue</button>
+      </section>
+    </main>
+  </body>
+</html>
