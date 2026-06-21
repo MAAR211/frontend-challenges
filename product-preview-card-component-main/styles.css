@@ -1,0 +1,165 @@
+:root {
+  --light-green: hsl(158, 45%, 45%);
+  --green: hsl(158, 36%, 37%);
+  --dark-green: hsl(158, 42%, 18%);
+  --cream: hsl(30, 38%, 92%);
+  --black: hsl(212, 21%, 14%);
+  --grey: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-fraunces: "Fraunces", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-montserrat);
+  background-color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   MOBILE FIRST 
+   ============================================ */
+
+.card {
+  background-color: var(--white);
+  border-radius: 0.625rem;
+  max-width: 21.25rem;
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  max-height: 16.25rem;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+}
+
+.card__content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card__category {
+  color: var(--grey);
+  font-size: 0.75rem;
+}
+
+.card__title {
+  font-size: 2rem;
+  font-family: var(--font-fraunces);
+  font-weight: 700;
+}
+
+.card__description {
+  color: var(--grey);
+  line-height: 1.6;
+  font-size: 0.875rem;
+}
+
+.card__price {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card__price--current {
+  color: var(--green);
+  font-size: 2rem;
+  font-family: var(--font-fraunces);
+}
+
+.card__price--original {
+  text-decoration: line-through;
+  color: var(--grey);
+  font-size: 0.875rem;
+}
+
+.card__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+  padding-block: 0.875rem;
+  border-radius: 0.5rem;
+  border: none;
+  gap: 0.625rem;
+  color: var(--white);
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card__button:hover {
+  background-color: var(--light-green);
+}
+
+.card__button:active {
+  transform: scale(0.98);
+  background-color: var(--dark-green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__button {
+    transition: none;
+  }
+
+  .card__button:active {
+    transform: none;
+  }
+}
+
+/* ============================================
+   DESKTOP
+   ============================================ */
+@media (min-width: 768px) {
+  .card {
+    grid-template-columns: 1fr 1fr; /* 2 column on desktop */
+    max-width: 37.5rem;
+  }
+
+  .card__image {
+    max-height: none;
+    height: 100%;
+  }
+
+  .card__content {
+    padding: 2rem;
+    gap: 1.4rem;
+  }
+
+  .card__button {
+    padding-block: 1rem;
+    font-weight: 500;
+  }
+}
