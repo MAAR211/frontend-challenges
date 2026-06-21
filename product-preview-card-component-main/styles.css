@@ -114,7 +114,6 @@ body {
   gap: 0.625rem;
   color: var(--white);
   font-family: var(--font-montserrat);
-  font-weight: 700;
   font-size: 0.875rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -127,6 +126,11 @@ body {
 .card__button:active {
   transform: scale(0.98);
   background-color: var(--dark-green);
+}
+
+.card__button:focus-visible {
+    outline: 3px solid var(--light-green);
+    outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -142,7 +146,7 @@ body {
 /* ============================================
    DESKTOP
    ============================================ */
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .card {
     grid-template-columns: 1fr 1fr; /* 2 column on desktop */
     max-width: 37.5rem;
@@ -155,11 +159,10 @@ body {
 
   .card__content {
     padding: 2rem;
-    gap: 1.4rem;
+    gap: 1.5rem;
   }
 
   .card__button {
     padding-block: 1rem;
-    font-weight: 500;
   }
 }
