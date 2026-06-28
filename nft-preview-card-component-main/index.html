@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <title>Frontend Mentor | NFT preview card component</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="sr-only">NFT Preview Card — Equilibrium #3429</h1>
+      <article class="card">
+        <div class="card__image-wrapper">
+          <img
+            class="card__image"
+            src="images/image-equilibrium.jpg"
+            alt="Equilibrium image"
+          />
+          <div class="card__overlay" aria-hidden="true">
+            <img src="images/icon-view.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="card__content">
+          <h2 class="card__title">Equilibrium #3429</h2>
+          <p class="card__description">
+            Our Equilibrium collection promotes balance and calm.
+          </p>
+          <div class="card__stats">
+            <span class="card__price">
+              <img src="images/icon-ethereum.svg" alt="" aria-hidden="true" />
+              0.041 ETH
+            </span>
+            <span class="card__deadline">
+              <img src="images/icon-clock.svg" alt="" aria-hidden="true" />
+              3 days left
+            </span>
+          </div>
+          <hr class="card__divider" />
+          <div class="card__author">
+            <img
+              class="card__author-avatar"
+              src="images/image-avatar.png"
+              alt="Author avatar"
+            />
+            <p class="card__author-info">
+              Creation of <span class="card__author-name">Jules Wyvern</span>
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
