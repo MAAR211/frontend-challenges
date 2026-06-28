@@ -5,6 +5,7 @@
   --blue-800: hsl(215, 32%, 27%);
 
   --cyan-400: hsl(178, 100%, 50%);
+  --cyan-400-overlay: hsla(178, 100%, 50%, 0.5);
   --white: hsl(0, 0%, 100%);
 
   --font-outfit: "Outfit", sans-serif;
@@ -75,7 +76,7 @@ body {
 .card__overlay {
   position: absolute;
   inset: 0;
-  background-color: hsla(178, 100%, 50%, 0.5);
+  background-color: var(--cyan-400-overlay);
   border-radius: 0.625rem;
   display: flex;
   align-items: center;
@@ -158,6 +159,7 @@ body {
 .card__author-name {
   color: var(--white);
   font-weight: 400;
+  transition: color 0.2s ease;
 }
 
 .card__author-name:hover {
@@ -170,6 +172,9 @@ body {
     transition: none;
   }
   .card__title {
+    transition: none;
+  }
+  .card__author-name{
     transition: none;
   }
 }
