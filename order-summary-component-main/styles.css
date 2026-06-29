@@ -1,0 +1,199 @@
+:root {
+  /* Primary Colors */
+  --blue-100: hsl(225, 100%, 94%);
+  --blue-700: hsl(245, 75%, 52%);
+
+  /* Neutral Colors */
+  --blue-50: hsl(225, 100%, 98%);
+  --gray-600: hsl(224, 23%, 55%);
+  --blue-950: hsl(223, 47%, 23%);
+
+  --blue-700-hover: hsl(245, 83%, 68%);
+  --blue-700-active: hsl(245, 75%, 42%);
+  --blue-100-transparent: hsla(225, 100%, 94%, 0.5);
+
+  --font-red-hat: "Red Hat Display", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-red-hat);
+  background-color: var(--blue-100);
+  background-image: url("images/pattern-background-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Visually hidden but accessible to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   MOBILE FIRST 
+   ============================================ */
+
+.card {
+  background-color: var(--blue-50);
+  border-radius: 1rem;
+  max-width: 22.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+}
+
+.card__content {
+  padding: 1.75rem;
+  gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__title {
+  color: var(--blue-950);
+  font-weight: 900;
+}
+
+.card__description {
+  color: var(--gray-600);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.card__plan {
+  background-color: hsl(225, 100%, 97%);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.875rem;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.card__plan-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; 
+}
+
+.card__plan-name {
+  color: var(--blue-950);
+  font-weight: 900;
+}
+
+.card__plan-price {
+  color: var(--gray-600);
+  font-weight: 700;
+}
+
+.card__plan-change-link {
+  color: var(--blue-700);
+  font-weight: 900;
+  transition: color 0.2s ease;
+  margin-left: auto
+}
+
+.card__plan-change-link:hover {
+  color: var(--gray-600);
+}
+
+.card__plan-change-link:active {
+  transform: scale(0.98);
+  color: var(--blue-700-active);
+}
+
+.card__payment-button {
+  color: #fff;
+  background-color: var(--blue-700);
+  padding: 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  width: 100%;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 15px 15px -5px hsla(245, 75%, 52%, 0.2);
+}
+
+.card__payment-button:hover {
+  background-color: var(--blue-700-hover);
+}
+
+.card__payment-button:active {
+  transform: scale(0.98);
+  background-color: var(--blue-700-active);
+}
+
+.card__cancel-link {
+  text-decoration: none;
+  color: var(--gray-600);
+  font-weight: 900;
+  transition: color 0.2s ease;
+}
+
+.card__cancel-link:hover {
+  color: rgb(139, 2, 18);
+}
+
+.card__cancel-link:active {
+  transform: scale(0.98);
+}
+
+.card__payment-button:focus-visible,
+.card__plan-change-link:focus-visible,
+.card__cancel-link:focus-visible {
+  outline: 2px solid var(--blue-700);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__payment-button,
+  .card__plan-change-link,
+  .card__cancel-link {
+    transition: none;
+  }
+
+  .card__payment-button:active {
+    transform: none;
+  }
+}
+
+/* ============================================
+   DESKTOP
+   ============================================ */
+@media (min-width: 48em) {
+  body {
+    background-image: url("images/pattern-background-desktop.svg");
+  }
+}
