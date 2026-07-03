@@ -31,9 +31,8 @@ body {
   color: var(--dark-magenta);
   display: flex;
   justify-content: center;
-  align-items: top;
   min-height: 100vh;
-  padding: 6rem 2rem;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
 }
 
 .container {
@@ -149,6 +148,25 @@ body {
 }
 
 /* ============================================
+   TABLET
+   ============================================ */
+@media (min-width: 32em) {
+  .container {
+    max-width: 32rem;
+  }
+
+  .hero__title {
+    font-size: 2.75rem;
+  }
+
+  .rating {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+/* ============================================
    DESKTOP
    ============================================ */
 @media (min-width: 52em) {
@@ -223,24 +241,5 @@ body {
   }
   .testimonial:nth-child(3) {
     margin-block-start: 2rem;
-  }
-}
-
-  /* ============================================
-   TABLET
-   ============================================ */
-@media (min-width: 32em) and (max-width: 51.99em) {
-  .container {
-    max-width: 32rem;
-  }
-
-  .hero__title {
-    font-size: 2.75rem;
-  }
-
-  .rating {
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
   }
 }
