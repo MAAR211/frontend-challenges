@@ -1,0 +1,252 @@
+:root {
+  --purple-700: hsl(257, 40%, 49%);
+  --magenta-400: hsl(300, 69%, 71%);
+  --magenta-500: hsl(300, 69%, 60%);
+  --magenta-600: hsl(300, 69%, 50%);
+
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   MOBILE FIRST 
+   ============================================ */
+
+body {
+  background-color: var(--purple-700);
+  background-image: url("images/bg-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: clamp(20rem, 100vw, 30rem);
+  /* background-size: contain; */
+  background-position: top center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+  font-family: var(--font-body);
+  width: 100%;
+}
+
+.huddle-logo {
+  width: 9rem;
+  margin-block-end: 3rem;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__image {
+  /* width: 20rem; */
+  width: clamp(18rem, 80vw, 24rem);
+  margin-block-end: 4rem;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__title {
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  line-height: 1.4;
+  margin-block-end: 1rem;
+}
+
+.hero__description {
+  color: white;
+  line-height: 1.5;
+  font-size: 1.125rem;
+  margin-block-end: 2rem;
+}
+
+.hero__register-button {
+  background-color: white;
+  color: var(--purple-700);
+  padding: 0.875rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  width: 70%;
+  max-width: 15rem;
+  box-shadow: 0 0.5rem 1rem hsla(257, 40%, 20%, 0.4);
+  font-weight: 400;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  margin-block-end: 6rem;
+}
+
+.hero__register-button:hover {
+  background-color: var(--magenta-400);
+  color: white;
+}
+
+.hero__register-button:active {
+  background-color: var(--magenta-500);
+  transform: scale(0.98);
+}
+
+.hero__register-button:focus-visible {
+  outline: 2px solid var(--magenta-600);
+  outline-offset: 3px;
+}
+
+.social-links__list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.social-link {
+  list-style: none;
+  color: white;
+  border: 1.2px solid white;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition:
+    border 0.2s ease,
+    color 0.2s ease;
+}
+
+.social-link:hover {
+  border: 1.2px solid var(--magenta-400);
+  color: var(--magenta-400);
+}
+
+.social-link:active {
+  border: 1.2px solid var(--magenta-500);
+  color: var(--magenta-500);
+}
+
+.social-link:focus-visible {
+  outline: 2px solid var(--magenta-600);
+  outline-offset: 2px;
+  border: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__register-button {
+    transition: none;
+  }
+  .social-link {
+    transition: none;
+  }
+}
+
+@media (min-width: 30em) {
+  body {
+    background-image: url("images/bg-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: clamp(20rem, 100vw, 50rem);
+  }
+
+  .hero__image {
+    width: clamp(18rem, 80vw, 28rem);
+  }
+
+  .hero__title {
+    max-width: 20ch;
+  }
+}
+
+/* ============================================
+   TABLET
+   ============================================ */
+
+@media (min-width: 56em) {
+  body {
+    background-image: url("images/bg-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    align-items: center;
+  }
+
+  .hero__image {
+    width: clamp(24rem, 60vw, 30rem);
+    margin-block-end: 0;
+  }
+
+  .huddle-logo {
+    width: 12rem;
+    transform: translateY(-10rem);
+  }
+
+  .hero {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .hero__title {
+    font-size: 1.625rem;
+    margin-block-end: 1rem;
+    max-width: 20ch;
+  }
+
+  .hero__content {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero__description {
+    font-size: 1rem;
+  }
+
+  .hero__register-button {
+    max-width: 11rem;
+    align-self: flex-start;
+  }
+
+  .social-links__list {
+    transform: translateY(11rem);
+    justify-content: flex-end;
+  }
+}
+
+/* ============================================
+   DESKTOP
+   ============================================ */
+
+@media (min-width: 75em) {
+  .hero__image {
+    width: clamp(26rem, 80vw, 80rem);
+    margin-inline-start: 2rem;
+    /* margin-block-end: 0; */
+    max-width: 100%;
+  }
+
+  .huddle-logo {
+    width: 12rem;
+    transform: translateY(-8rem);
+    margin-inline-start: 2rem;
+  }
+
+  .hero__title {
+    font-size: 1.875rem;
+  }
+
+  .hero {
+    gap: 5rem;
+  }
+  .social-links__list {
+    transform: translateY(6rem);
+    justify-content: flex-end;
+  }
+}
