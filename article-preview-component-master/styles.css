@@ -1,0 +1,276 @@
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================
+   MOBILE FIRST 
+   ============================================ */
+
+body {
+  background-color: var(--light-grayish-blue);
+  font-family: Manrope, sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 0 1rem;
+}
+
+.card {
+  max-width: 24rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.875rem;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  max-height: 14rem;
+  object-fit: cover;
+  display: block;
+  object-position: 50% 25%;
+  border-radius: 0.875rem 0.875rem 0 0;
+}
+
+.card__content {
+  padding: 2.125rem;
+}
+
+.card__title {
+  font-size: 1.25rem;
+  color: var(--very-dark-grayish-blue);
+  margin-block-end: 1rem;
+  line-height: 1.5;
+}
+
+.card__description {
+  color: var(--desaturated-dark-blue);
+  line-height: 1.4;
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  /* min height is required here so transition between author info and share panel can be smooth */
+  /* without it height depends on content and card height changes when share panel is visible */
+  min-height: 4.875rem;
+}
+
+.card__author-info {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.card__author-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.card__meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__author-name {
+  color: var(--very-dark-grayish-blue);
+  font-weight: 700;
+}
+
+.card__publish-date {
+  color: var(--grayish-blue);
+}
+
+.card__share-button {
+  padding: 0.625rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--light-grayish-blue);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  margin-left: auto;
+}
+
+.card__share-button:hover {
+  background-color: var(--grayish-blue);
+  transform: scale(1.1);
+}
+
+.card__share-button:focus-visible {
+  outline: 2px solid green;
+  outline-offset: 2px;
+}
+
+.card__share-panel {
+  display: none;
+}
+
+.card__author.is-active .card__share-label {
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  letter-spacing: 0.3rem;
+}
+
+.card__author.is-active .card__share-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card__author.is-active .card__share-link {
+  list-style: none;
+  transition: transform 0.2s ease;
+}
+
+.card__author.is-active .card__share-link:hover {
+  transform: translateY(-4px);
+}
+
+/* <a> and <img> tags are inline by default  */
+/* display: block removes extra space for inline elements below the baseline  */
+.card__author.is-active .card__share-link a img {
+  display: block;
+}
+
+.card__author.is-active .card__share-button {
+  background-color: var(--grayish-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__share-button {
+    transition: none;
+  }
+  .card__author.is-active .card__share-link {
+    transition: none;
+  }
+}
+
+@media (max-width: 47.938rem) {
+  /* When share button is clicked, author info hides and share panel appears instead */
+
+  .card__author.is-active .card__author-info {
+    display: none;
+  }
+
+  .card__author.is-active {
+    background-color: var(--very-dark-grayish-blue);
+    border-radius: 0 0 0.875rem 0.875rem;
+  }
+
+  .card__author.is-active .card__share-panel {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .card {
+    flex-direction: row;
+    max-width: 46rem;
+  }
+
+  .card__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card__image {
+    max-width: 22rem;
+    max-height: none;
+    object-fit: cover;
+    display: block;
+    object-position: 10% 50%;
+    border-radius: 0.875rem 0 0 0.875rem;
+  }
+
+  /* set desktop styles for share panel */
+
+  .card__author {
+    position: relative;
+  }
+
+  .card__author.is-active .card__share-panel {
+    display: flex;
+
+    position: absolute;
+    background: var(--very-dark-grayish-blue);
+    /* Distance from the bottom of the parent - 100% = The full height of the parent container (.card__author) + 1.75rem = Extra space  */
+    bottom: calc(100% + 1.75rem);
+    padding: 1.125rem 2.25rem;
+    border-radius: 0.625rem;
+    gap: 1.5rem;
+    right: -5.25rem;
+  }
+
+  .card__author.is-active .card__share-panel::after {
+    content: ""; /* content property is required for pseudo-elements */
+    position: absolute;
+    /* margin-top: -1px so triangle overlap the panel slightly */
+    /* without overlap there is a thin white line between panel and triangle */
+    top: 100%; /* Starts at bottom of panel, we need arrow to be underneath of share panel */
+    margin-top: -1px;
+    left: 50%; /* center horizontally */
+
+    /* Triangle's left edge starts at 50%, so the triangle itself goes to the right of center */
+    /* translateX(-50%) slides it left by exactly half its own width, putting the center at 50% */
+    transform: translateX(-50%); /* Center under the share panel */
+
+    /* 
+   *  Creating Triangle:
+   * With width:0 and height:0, borders collapse into triangles.
+   * Left & right borders are transparent (invisible wings).
+   * Top border is colored => triangle points down (opposite direction).
+   * No bottom border needed.
+   */
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid var(--very-dark-grayish-blue);
+  }
+
+  .card__social-media-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .card__author.is-active .card__share-links {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .card__author.is-active .card__share-label {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 75rem) {
+  .card {
+    max-width: 54rem;
+  }
+
+  .card__title {
+    font-size: 1.5rem;
+  }
+
+  .card__content {
+    padding: 2.5rem;
+  }
+}
